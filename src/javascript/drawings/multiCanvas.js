@@ -25,7 +25,6 @@ const updateControllersValues = setting => {
       max: 255
     }
   };
-
   const canvas = document.getElementsByClassName(`canvas-1`)[0];
   // // canvas selector
   // document.getElementsByClassName(
@@ -36,29 +35,18 @@ const updateControllersValues = setting => {
   // )[0];
 
   const canvasContext = canvas.getContext("2d");
-
   const effect = setting.children[7].children[1].children[0].value;
-
   const range = setting.children[0].children[1].children[0].value;
   const frequencyMin = ranges[range].min;
   const frequencyMax = ranges[range].max;
-
   const pattern = setting.children[1].children[1].children[0].value;
-
   const shape = setting.children[2].children[1].children[0].value;
-
   const size = setting.children[3].children[1].children[0].value;
-
   const stroke = setting.children[4].children[1].children[0].checked;
-
   const color = setting.children[5].children[1].children[0].value;
-
   let colorWell = hexToRGB(color.replace("#", "0x"));
-
   let opacity = setting.children[6].children[1].children[0].value;
-
   const twist = setting.children[8].children[1].children[0].checked;
-
   const rotationSpeed = setting.children[9].children[1].children[0].value;
 
   return {
@@ -187,6 +175,7 @@ function startAudioVisual() {
             window.history.pushState({ path: newURL.href }, "", newURL.href);
           }
         }
+
 
         canvasContext.globalCompositeOperation = effect;
 

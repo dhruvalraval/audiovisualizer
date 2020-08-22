@@ -86,7 +86,6 @@ function drawShape({ ctx, x, y, width, style, stroke, mode, i }) {
       break;
     case "ninja":
       drawStar(ctx, x, y, 4, width, width / 2 + i);
-
       break;
   }
 
@@ -100,6 +99,12 @@ function drawShape({ ctx, x, y, width, style, stroke, mode, i }) {
   if (style) {
     ctx.fillStyle = style;
     ctx.fill();
+  }
+
+  if (true) {
+    ctx.clip();
+    const video = document.querySelector("#someone");
+    ctx.drawImage(video, 0, 0, ctx.canvas.width, ctx.canvas.height);
   }
 }
 
@@ -157,17 +162,18 @@ function drawPattern({
         (canvas.height / 15) * Math.floor(i / 15) -
         (volume * size) / 2 +
         canvas.height / 15 / 2
-    },
+    }
   };
   const xPos = modes[mode].x;
   const yPos = modes[mode].y;
+
 
   rotate({
     ctx,
     x: xPos,
     y: yPos,
     drawShape: () => shape(xPos, yPos),
-    degree: twist && (360 / 255) * (volume / 255),
+    degree: twist && (360 / 255) * (volume / 255)
   });
 }
 
